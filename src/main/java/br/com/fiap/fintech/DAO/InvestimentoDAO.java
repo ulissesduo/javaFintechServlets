@@ -1,7 +1,6 @@
 package br.com.fiap.fintech.DAO;
 
 import br.com.fiap.fintech.Entities.Investimento;
-import br.com.fiap.fintech.Entities.TipoInvestimento;
 import br.com.fiap.fintech.Factory.ConnectionFactory;
 
 import java.sql.*;
@@ -14,7 +13,6 @@ public class InvestimentoDAO {
         try (Connection con = ConnectionFactory.getConnection();
              PreparedStatement statement = con.prepareStatement(sql)) {
 
-            statement.setString(1, investimento.getTipoInvestimento().name());
             statement.setDouble(2, investimento.getValor());
             statement.setTimestamp(3, investimento.getDataInicio());
             statement.setTimestamp(4, investimento.getDataResgate());
@@ -35,13 +33,12 @@ public class InvestimentoDAO {
 
             while (rs.next()) {
                 Long id = rs.getLong("ID_INVESTIMENTO");
-                TipoInvestimento tipoInvestimento = TipoInvestimento.valueOf(rs.getString("TIPO_INVESTIMENTO"));
                 double valor = rs.getDouble("VALOR_INVESTIDO");
                 Timestamp dataInicio = rs.getTimestamp("DATA_INICIO");
                 Timestamp dataResgate = rs.getTimestamp("DATA_RESGATE");
                 int usuarioId = rs.getInt("USUARIO_ID");
 
-                Investimento investimento = new Investimento(tipoInvestimento, valor, dataInicio, dataResgate, usuarioId);
+                Investimento investimento = new Investimento( valor, dataInicio, dataResgate, usuarioId);
                 investimento.setId(id);
                 investimentos.add(investimento);
             }

@@ -20,10 +20,6 @@ public class ConnectionFactory {
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USUARIO, SENHA);
-
-
-
-
     }
     public static void closeConnection(Connection con) {
         if (con != null) {

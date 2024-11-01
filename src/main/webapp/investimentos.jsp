@@ -23,7 +23,6 @@
     <% for (Investimento investimento : investimentos) { %>
     <tr>
         <td><%= investimento.getId() %></td>
-        <td><%= investimento.getTipoInvestimento() %></td>
         <td><%= investimento.getValor() %></td>
         <td><%= investimento.getDataInicio() %></td>
         <td><%= investimento.getDataResgate() %></td>

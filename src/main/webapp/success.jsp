@@ -8,5 +8,6 @@
 <body>
 <h1>Despesa Inserida com Sucesso!</h1>
 <a href="insert_despesa.jsp">Inserir outra despesa</a>
+<a href="fiapInvestment">Lista aqui</a>
 </body>
 </html>

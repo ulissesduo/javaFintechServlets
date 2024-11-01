@@ -4,14 +4,13 @@ import java.sql.Timestamp;
 
 public class Investimento {
     private Long id;
-    private TipoInvestimento tipoInvestimento;
+
     private double valor;
     private Timestamp dataInicio;
     private Timestamp dataResgate;
     private int usuarioId;
 
-    public Investimento(TipoInvestimento tipoInvestimento, double valor, Timestamp dataInicio, Timestamp dataResgate, int usuarioId) {
-        this.tipoInvestimento = tipoInvestimento;
+    public Investimento(double valor, Timestamp dataInicio, Timestamp dataResgate, int usuarioId) {
         this.valor = valor;
         this.dataInicio = dataInicio;
         this.dataResgate = dataResgate;
@@ -24,14 +23,6 @@ public class Investimento {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public TipoInvestimento getTipoInvestimento() {
-        return tipoInvestimento;
-    }
-
-    public void setTipoInvestimento(TipoInvestimento tipoInvestimento) {
-        this.tipoInvestimento = tipoInvestimento;
     }
 
     public double getValor() {

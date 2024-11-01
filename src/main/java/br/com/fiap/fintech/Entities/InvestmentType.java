@@ -1,18 +1,18 @@
 package br.com.fiap.fintech.Entities;
 //funcionoooooooooooooooooooooooooooooooouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
 public class InvestmentType {
-    private Long id;
+    private Integer id;
     private String description;
 
-    public InvestmentType(Long id, String description) {
+    public InvestmentType(Integer id, String description) {
         this.id = id;
         this.description = description;
     }
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

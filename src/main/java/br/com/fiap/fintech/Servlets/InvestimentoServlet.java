@@ -2,7 +2,6 @@ package br.com.fiap.fintech.Servlets;
 
 import br.com.fiap.fintech.DAO.InvestimentoDAO;
 import br.com.fiap.fintech.Entities.Investimento;
-import br.com.fiap.fintech.Entities.TipoInvestimento;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -23,11 +22,10 @@ public class InvestimentoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             double valor = Double.parseDouble(req.getParameter("valor"));
-            TipoInvestimento tipoInvestimento = TipoInvestimento.valueOf(req.getParameter("tipoInvestimento"));
             Timestamp dataInicio = Timestamp.valueOf(req.getParameter("dataInicio") + " 00:00:00");
             Timestamp dataResgate = Timestamp.valueOf(req.getParameter("dataResgate") + " 00:00:00");
             int usuarioId = Integer.parseInt(req.getParameter("usuarioId"));
-            Investimento investimento = new Investimento(tipoInvestimento, valor, dataInicio, dataResgate, usuarioId);
+            Investimento investimento = new Investimento( valor, dataInicio, dataResgate, usuarioId);
 
             investimentoDAO.save(investimento);
 
